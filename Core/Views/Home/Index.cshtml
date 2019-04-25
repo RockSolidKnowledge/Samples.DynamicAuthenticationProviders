@@ -1,0 +1,28 @@
+﻿@using IdentityServer4.Extensions
+@inject IAuthenticationSchemeProvider Schemes
+@using Microsoft.AspNetCore.Authentication
+@{
+    ViewData["Title"] = "Home Page";
+    var result = await Context.AuthenticateAsync("cookie");
+}
+
+@if (result.Principal.IsAuthenticated())
+{
+    <h1>Authenticated!</h1>
+}
+else
+{
+    <h1>Unauthenticated</h1>
+}
+
+<div class="row p-3">
+    <div class="col-12">
+        <h2>Available Providers</h2>
+        <ul>
+            @foreach (var scheme in await Schemes.GetAllSchemesAsync())
+            {
+                <li>@scheme.Name</li>
+            }
+        </ul>
+    </div>
+</div>

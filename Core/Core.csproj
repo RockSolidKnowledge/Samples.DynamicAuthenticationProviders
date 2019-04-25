@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="IdentityServer4.DynamicAuthProviders" Version="0.2" />
+    <PackageReference Include="IdentityServer4.DynamicAuthProviders.Saml" Version="0.2" />
+    <PackageReference Include="IdentityServer4.DynamicAuthProviders.WsFederation" Version="0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="schemes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties schemes_1json__JsonSchema="http://json.schemastore.org/ansible-stable-2.5" /></VisualStudio></ProjectExtensions>
+
+</Project>
