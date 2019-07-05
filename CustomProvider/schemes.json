@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "openid-1",
+    "DisplayName": "OpenID",
+    "HandlerType": "Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectHandler, Microsoft.AspNetCore.Authentication.OpenIdConnect, Version=2.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60",
+    "Options": {
+      "Authority": "https://demo.identityserver.com",
+      "ClientId": "dynamicauth-quickstart",
+      "ResponseType": "id_token token",
+      "Scope": [ "openid", "profile", "api1" ],
+      "CallbackPath": "/signin/dynamic/openid-1",
+      "SignInScheme": "cookie"
+    }
+  },
+  {
+    "Name": "cookie-1",
+    "DisplayName": "Loaded cookie",
+    "HandlerType": "Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler, Microsoft.AspNetCore.Authentication.Cookies, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60",
+    "Options": {
+      "LoginPath": "/Home/Login" 
+    } 
+  }
+]
