@@ -24,12 +24,12 @@ namespace CustomProvider
 
             services.AddMvc();
 
-            services.AddAuthentication().AddCookie();
-            services.AddSingleton<ISystemClock, SystemClock>();
+            services.AddAuthenticationCore();
 
-            services.AddDataProtection();
-
-            services.TryAddEnumerable(ServiceDescriptor.Singleton<IPostConfigureOptions<CookieAuthenticationOptions>, PostConfigureCookieAuthenticationOptions>());
+            services.TryAddSingleton<ISystemClock, SystemClock>();
+            services.TryAddEnumerable(ServiceDescriptor.Singleton<
+                IPostConfigureOptions<CookieAuthenticationOptions>, 
+                PostConfigureCookieAuthenticationOptions>());
 
             services.AddDynamicProviders(options =>
                 {
@@ -43,9 +43,7 @@ namespace CustomProvider
                     // Optional custom JSON serialization
                     options.SerializerSettings.Converters.Add(new CookieAuthenticationOptionsConverter());
                 })
-                .AddJsonStore(options => options.Path = "schemes.json") // Basic JSON store for auth schemes
-                .AddOpenIdConnect() // Add OIDC support
-                .AddSaml(); // Add SAML support
+                .AddJsonStore(options => options.Path = "schemes.json"); // Basic JSON store for auth schemes
         }
 
         public void Configure(IApplicationBuilder app)

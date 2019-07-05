@@ -8,9 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Rsk.DynamicAuthenticationProviders " Version="1.0.0" />
-    <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.0.0" />
-    <PackageReference Include="Rsk.DynamicAuthenticationProviders.WsFederation" Version="1.0.0" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders " Version="1.0.1.16" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.0.1.16" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders.WsFederation" Version="1.0.1.16" />
   </ItemGroup>
 
 
