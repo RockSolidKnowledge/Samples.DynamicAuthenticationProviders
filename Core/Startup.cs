@@ -17,7 +17,12 @@ namespace Core
             services.AddAuthentication("cookie")
                 .AddCookie("cookie");
 
-            services.AddDynamicProviders() // Component setup
+            services.AddDynamicProviders(options =>
+                {
+                    // Component setup
+                    options.Licensee = "";
+                    options.LicenseKey = "";
+                })
                 .AddJsonStore(options => options.Path = "schemes.json") // Basic JSON store for auth schemes
                 .AddOpenIdConnect() // Add OIDC support
                 .AddSaml(); // Add SAML support
