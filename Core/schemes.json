@@ -8,7 +8,7 @@
       "ClientId": "dynamicauth-quickstart",
       "ResponseType": "id_token token",
       "Scope": [ "openid", "profile", "api1" ],
-      "CallbackPath": "/signin/dynamic/openid-1" ,
+      "CallbackPath": "/signin/dynamic/openid-1",
       "SignInScheme": "cookie"
     }
   }

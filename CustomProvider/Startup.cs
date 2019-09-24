@@ -23,6 +23,7 @@ namespace CustomProvider
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddMvc();
+            services.AddControllersWithViews();
 
             services.AddAuthenticationCore();
 
@@ -50,10 +51,13 @@ namespace CustomProvider
         {
             app.UseDeveloperExceptionPage();
 
-            app.UseAuthentication();
-
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
     }
 

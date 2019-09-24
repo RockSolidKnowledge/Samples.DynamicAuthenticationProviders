@@ -20,6 +20,7 @@ namespace EntityFramework
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddMvc();
+            services.AddControllersWithViews();
 
             services.AddAuthentication("cookie")
                 .AddCookie("cookie");
@@ -41,10 +42,13 @@ namespace EntityFramework
 
             Seed(app.ApplicationServices);
 
-            app.UseAuthentication();
-
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
 
         public void Seed(IServiceProvider services)
