@@ -7,10 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="1.2.0" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="1.3.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.2.1" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.WsFederation" Version="1.1.0" />
-    <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="1.1.0" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="1.2.0" />
   </ItemGroup>
 
 </Project>
