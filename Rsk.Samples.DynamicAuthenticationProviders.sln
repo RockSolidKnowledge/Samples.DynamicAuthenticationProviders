@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework", "EntityFr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomProvider", "CustomProvider\CustomProvider.csproj", "{CC64A351-2FCF-45B1-B284-33C7B68C7906}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{292A90BC-7DB9-486D-8FB1-A6F8529B78FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{272DA007-5926-4390-8A8B-EF6F39DCD644}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{CC64A351-2FCF-45B1-B284-33C7B68C7906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC64A351-2FCF-45B1-B284-33C7B68C7906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC64A351-2FCF-45B1-B284-33C7B68C7906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{272DA007-5926-4390-8A8B-EF6F39DCD644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272DA007-5926-4390-8A8B-EF6F39DCD644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272DA007-5926-4390-8A8B-EF6F39DCD644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272DA007-5926-4390-8A8B-EF6F39DCD644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +45,7 @@ Global
 		{E17365F8-5957-4BE8-8AB7-FCC99ECC1E4F} = {A5B2E56B-B61C-4168-9BC1-0033F3E37BD0}
 		{C569BFC2-2E04-4C6D-80DF-2946CBC8FD5D} = {A5B2E56B-B61C-4168-9BC1-0033F3E37BD0}
 		{CC64A351-2FCF-45B1-B284-33C7B68C7906} = {A5B2E56B-B61C-4168-9BC1-0033F3E37BD0}
+		{272DA007-5926-4390-8A8B-EF6F39DCD644} = {292A90BC-7DB9-486D-8FB1-A6F8529B78FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9637911C-51E9-4556-8936-C94330392098}

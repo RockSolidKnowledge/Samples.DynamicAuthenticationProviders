@@ -25,15 +25,20 @@ namespace EntityFramework
             services.AddAuthentication("cookie")
                 .AddCookie("cookie");
 
-            services.AddDynamicProviders(options =>
+            var builder = services.AddDynamicProviders(options =>
                 {
                     // Component setup
                     options.Licensee = "";
                     options.LicenseKey = "";
-                }) 
+                })
                 .AddEntityFrameworkStore(options => options.UseInMemoryDatabase(ConnectionString))
-                .AddOpenIdConnect() // Add OIDC support
-                .AddSaml(); // Add SAML support
+                .AddOpenIdConnect(); // Add OIDC support
+
+            /*builder.AddSaml(optionsAugmentor => // Add SAML support
+            {
+                optionsAugmentor.Licensee = "DEMO";
+                optionsAugmentor.LicenseKey = "<your license key>";
+            });*/
         }
 
         public void Configure(IApplicationBuilder app)
