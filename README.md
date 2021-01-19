@@ -1,4 +1,4 @@
-# Sample Projects implementing Rsk.DynamicAuthenticationProviders
+# Sample projects implementing Rsk.DynamicAuthenticationProviders
 
 This repository contains the completed quickstarts from [https://www.identityserver.com/documentation/dynamic-authentication-providers](https://www.identityserver.com/documentation/dynamic-authentication-providers).
 
