@@ -29,7 +29,7 @@ namespace CustomProvider.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
-            await HttpContext.SignInAsync("cookie-1", new ClaimsPrincipal(new ClaimsIdentity(new List<Claim> {new Claim("sub", "123")})));
+            await HttpContext.SignInAsync("cookie-1", new ClaimsPrincipal(new ClaimsIdentity(new List<Claim> {new Claim("sub", "123")}, "cookie-1")));
             return Redirect(returnUrl);
         }
 

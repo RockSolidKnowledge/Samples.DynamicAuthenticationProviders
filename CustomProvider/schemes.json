@@ -4,7 +4,7 @@
     "DisplayName": "Loaded cookie",
     "HandlerType": "Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler, Microsoft.AspNetCore.Authentication.Cookies, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60",
     "Options": {
-      "LoginPath": "/Home/Login" 
+      "LoginPath": "/Home/Login"
     } 
   }
 ]

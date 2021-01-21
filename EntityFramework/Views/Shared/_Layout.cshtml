@@ -1,4 +1,4 @@
-﻿@using IdentityServer4.Extensions
+﻿@using Microsoft.AspNetCore.Authentication
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +20,21 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        @if (!User.IsAuthenticated())
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="TestChallenge">Challenge "openid-1"</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignOut"><small><em>Clear local cookie</em></small></a>
-                            </li>
+                        @{
+                            var result = await Context.AuthenticateAsync("cookie");
+
+                            if (!result.Succeeded)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="TestChallenge">Challenge "openid-1"</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignOut"><small><em>Clear local cookie</em></small></a>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>

@@ -28,8 +28,8 @@ namespace IdentityServer
             var builder = services.AddDynamicProviders(options =>
                 {
                     // Component setup
-                    options.Licensee = "DEMO";
-                    options.LicenseKey = "<your license key>";
+                    options.Licensee = "";
+                    options.LicenseKey = "";
                 })
                 .AddJsonStore(options => options.Path = "schemes.json")
                 .AddOpenIdConnect();
@@ -43,6 +43,8 @@ namespace IdentityServer
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseHttpsRedirection();
+
             app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles();
