@@ -25,7 +25,7 @@ namespace CustomProvider
             services.AddMvc();
             services.AddControllersWithViews();
 
-            services.AddAuthenticationCore();
+            services.AddAuthenticationCore(options => options.RequireAuthenticatedSignIn = false);
 
             services.TryAddSingleton<ISystemClock, SystemClock>();
             services.TryAddEnumerable(ServiceDescriptor.Singleton<
@@ -49,6 +49,8 @@ namespace CustomProvider
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseHttpsRedirection();
+
             app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles();

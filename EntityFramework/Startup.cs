@@ -43,6 +43,8 @@ namespace EntityFramework
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseHttpsRedirection();
+
             app.UseDeveloperExceptionPage();
 
             Seed(app.ApplicationServices);
