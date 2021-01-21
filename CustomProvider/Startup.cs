@@ -25,7 +25,7 @@ namespace CustomProvider
             services.AddMvc();
             services.AddControllersWithViews();
 
-            services.AddAuthenticationCore(options => options.RequireAuthenticatedSignIn = false);
+            services.AddAuthenticationCore();
 
             services.TryAddSingleton<ISystemClock, SystemClock>();
             services.TryAddEnumerable(ServiceDescriptor.Singleton<
