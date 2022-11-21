@@ -30,15 +30,17 @@ namespace IdentityServer
                     // Component setup
                     options.Licensee = "";
                     options.LicenseKey = "";
+
                 })
                 .AddJsonStore(options => options.Path = "schemes.json")
-                .AddOpenIdConnect();
-
-            /*builder.AddSaml(optionsAugmentor => // Add SAML support
-            {
-                optionsAugmentor.Licensee = "DEMO";
-                optionsAugmentor.LicenseKey = "<your license key>";
-            });*/
+                .AddOpenIdConnect()
+                // .AddSaml(o =>
+                // {
+                //     o.Licensee = "";
+                //     o.LicenseKey = "";
+                // })
+                ;
+            
         }
 
         public void Configure(IApplicationBuilder app)
