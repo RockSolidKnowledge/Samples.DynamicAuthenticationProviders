@@ -3,11 +3,8 @@
 // Create the web application builder
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
-builder.ConfigureServices();
-
-// Build the application
-var app = builder.Build();
+// Add services to the container and build the application
+var app = builder.ConfigureServices();
 
 // Configure the HTTP request pipeline
 app.ConfigurePipeline();
