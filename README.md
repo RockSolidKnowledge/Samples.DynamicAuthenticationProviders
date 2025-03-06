@@ -38,7 +38,7 @@ The Dynamic Authentication Providers component supports multiple authentication 
 ## Documentation
 
 For detailed documentation on implementing and using Dynamic Authentication Providers:
-- [Developer Documentation](https://www.identityserver.com/documentation/)
+- [Developer Documentation](https://docs.identityserver.com/dynamic-authentication-providers/)
 - [Introduction Article](https://www.identityserver.com/articles/dynamic-authentication-providers)
 
 Key features:
