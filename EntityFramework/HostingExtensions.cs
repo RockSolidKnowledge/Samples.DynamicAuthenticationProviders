@@ -10,22 +10,23 @@ using Rsk.DynamicAuthenticationProviders.Stores;
 
 namespace EntityFramework
 {
-    public class Startup
+    public static class HostingExtensions
     {
         private const string ConnectionString = "test";
 
-        public void ConfigureServices(IServiceCollection services)
+        public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
+
         {
             IdentityModelEventSource.ShowPII = true;
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-            services.AddMvc();
-            services.AddControllersWithViews();
+            builder.Services.AddMvc();
+            builder.Services.AddControllersWithViews();
 
-            services.AddAuthentication("cookie")
+            builder.Services.AddAuthentication("cookie")
                 .AddCookie("cookie");
 
-            var builder = services.AddDynamicProviders(options =>
+            builder.Services.AddDynamicProviders(options =>
                 {
                     // Component setup
                     options.Licensee = "";
@@ -39,15 +40,23 @@ namespace EntityFramework
                 optionsAugmentor.Licensee = "DEMO";
                 optionsAugmentor.LicenseKey = "<your license key>";
             });*/
+
+            return builder.Build();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
 
             app.UseDeveloperExceptionPage();
 
-            Seed(app.ApplicationServices);
+            Seed(app.Services);
 
             app.UseStaticFiles();
             app.UseRouting();
@@ -55,10 +64,15 @@ namespace EntityFramework
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
+            // Map routes
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            return app;
         }
 
-        public void Seed(IServiceProvider services)
+        public static void Seed(IServiceProvider services)
         {
             var store = services.GetRequiredService<IAuthenticationSchemeStore>();
 
@@ -73,7 +87,7 @@ namespace EntityFramework
                         Authority = "https://demo.identityserver.com",
                         ClientId = "dynamicauth-quickstart",
                         ResponseType = "id_token token",
-                        Scope = {"openid", "profile", "api1"},
+                        Scope = { "openid", "profile", "api1" },
                         CallbackPath = "/signin/dynamic/openid-1",
                         SignInScheme = "cookie"
                     }));

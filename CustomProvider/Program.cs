@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using CustomProvider;
 
-namespace CustomProvider
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+// Create the web application builder
+var builder = WebApplication.CreateBuilder(args);
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
-}
+// Add services to the container.
+builder.ConfigureServices();
+
+// Build the application
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+app.ConfigurePipeline();
+
+// Run the application
+await app.RunAsync();
