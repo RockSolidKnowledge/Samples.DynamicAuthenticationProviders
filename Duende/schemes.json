@@ -1,0 +1,35 @@
+[
+  {
+    "Name": "openid-1",
+    "DisplayName": "OpenID",
+    "HandlerType": "Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectHandler, Microsoft.AspNetCore.Authentication.OpenIdConnect, Version=2.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60",
+    "Options": {
+      "Authority": "https://demo.identityserver.com",
+      "ClientId": "dynamicauth-quickstart",
+      "ResponseType": "id_token token",
+      "Scope": [ "openid", "profile", "api1" ],
+      "CallbackPath": "/signin/dynamic/openid-1",
+      "SignInScheme": "idsrv.external"
+    }
+  },
+//  {
+//    "Name": "saml",
+//    "DisplayName": "SAML 2.0",
+//    "HandlerType": "Rsk.AspNetCore.Authentication.Saml2p.Saml2pAuthenticationHandler, Rsk.Saml, Version=5.3.1, Culture=neutral, PublicKeyToken=null",
+//    "Options": {
+//      "ServiceProviderOptions": {
+//        "EntityId": "http://localhost:5001/saml",
+//        "SignAuthenticationRequests": false
+//      },
+//      "IdentityProviderOptions": {
+//        "EntityId": "http://localhost:5000",
+//        "SingleSignOnEndpoint": {
+//          "Endpoint": "http://localhost:5000/saml/sso",
+//          "BindingType": 1
+//        },
+//        "SigningCertificate": "MIID5gIBAzCCA6IGCSqGSIb3DQEHAaCCA5MEggOPMIIDizCCA4cGCSqGSIb3DQEHBqCCA3gwggN0AgEAMIIDbQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQMwDgQImAy76RmtTI4CAgfQgIIDQM6M38al4/+iCc9+CfA4UkNAM4Mw3sBT9ypsCrSLE2Ea7HbLQzseMC4kgbdKEfGJcDeCeCckHehFdNMTmmPMNsDfPNk9bSpTOnd2+7iE38vDAk8Zp5hLd+kuHF1/u1paCwrqxDltD8680BS95+QqUtHhx2KprnLWYyTdUERXt6Hr1fNbUNrh33DDEP7/OV6YaCQK305xPl84k6b0MPSu7yqRCl2uPrdE4LhcV/C7YLbvkvYOERDH9t+/DNJ4N9itmpvBmqk2tv0Dzr3saQWAuC510lhC13GwMedzNqV2ys5+UFU4dX8PDikIO2ejy5POTVcNTa1KK7vW8aNacv677eVRj5u8/t7AQ93AdGUaiQTZm6Ve2xUjHtItdNSzC0/oU+qEVttPTM/Anfz8hEMi3GQ8PppUwIXCCxD/W3radAsyLCqD9D8QnZ03xzCKkyTeO+ammaBWGWTviLdMXW8xlu67u4TVTTitH971zahVOpKzO/1ZzaT/j0kmZsAxAIlarnxwCb6qE/PIARfaXcRDj795Z/S5aOOV/t2bRUbnqkXOFXSERYcrNXqfry+NRJW3rGiUR1hkJnN9ZUiyoElMmqnvKuO2I7tAElWO80ahNEohjvS2aWYqEvJBuYmMmJpnAvMXwjEMuPxGLjlOazUaM1yDxxWEzMHN9kX8WNicuNYqwJxltZ/6gd4Cwiv7xnw4DDkh+7YZhiHrq8njaqaI+OpV2hn5rm/mLL9b4hze0AHnzPYwbg0/5qsB9Lv/2OJkAKQMeD5THQoR1q0F57yO5a7dPX2bbwVVqfbfB9YgEc9Laa/IcsjqIW352Qdw02K6nfe492rfSlyj48HCarX53PnluKKi/c2tuG1dbe+z7zl7HjXpGe0qeWJlDMTtXO3CyJ9M50IovD8Hj+9GDXdZTCRlhLjJX68oXMp/X3FBftBKU9BdDLaipQ5nMv5zUBFfNN7E33cDpevUwofd3jyCKu5XL3GFDG91TswyCMj7qtP104ujdx/PdIdmyrWmHbNG2vuCJkvX+jfmqbIMTvOQwwVdwz3SW5CxrxfMnu7f4/MOUl6TCFyALFtRO0sJSSqSwM4N0q8kdJ6FhTDDQKENBHYwOzAfMAcGBSsOAwIaBBTTAWikwOP+uTHqtbO9+V9Mxidd2AQUKwfjYGA8dljydFzUjMuujeAVCzACAgfQ"
+//      },
+//      "SignInScheme": "idsrv.external"
+//    }
+//  }
+]
