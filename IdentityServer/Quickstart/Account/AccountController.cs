@@ -254,7 +254,7 @@ namespace IdentityServerHost.Quickstart.UI
 
                 if (!local)
                 {
-                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } };
+                    vm.ExternalProviders = [new ExternalProvider { AuthenticationScheme = context.IdP }];
                 }
 
                 return vm;

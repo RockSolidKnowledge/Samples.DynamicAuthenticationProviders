@@ -189,7 +189,7 @@ namespace IdentityServerHost.Quickstart.UI
             var idToken = externalResult.Properties.GetTokenValue("id_token");
             if (idToken != null)
             {
-                localSignInProps.StoreTokens(new[] { new AuthenticationToken { Name = "id_token", Value = idToken } });
+                localSignInProps.StoreTokens([new AuthenticationToken { Name = "id_token", Value = idToken }]);
             }
         }
     }

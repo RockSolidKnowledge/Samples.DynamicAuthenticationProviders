@@ -184,7 +184,7 @@ public class Index : PageModel
 
             if (!local)
             {
-                View.ExternalProviders = new[] { new ViewModel.ExternalProvider ( authenticationScheme: context.IdP ) };
+                View.ExternalProviders = [new ViewModel.ExternalProvider ( authenticationScheme: context.IdP )];
             }
 
             return;
