@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Duende.IdentityServer" Version="7.1.1" />
+		<PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="3.0.0"/>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.13" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+	</ItemGroup>
+
+
+
+</Project>

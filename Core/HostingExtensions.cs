@@ -1,24 +1,22 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Logging;
 
 namespace Core
 {
-    public class Startup
+    public static class HostingExtensions
     {
-        public void ConfigureServices(IServiceCollection services)
+        public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
         {
             IdentityModelEventSource.ShowPII = true;
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-            services.AddMvc();
-            services.AddControllersWithViews();
+            builder.Services.AddMvc();
+            builder.Services.AddControllersWithViews();
 
-            services.AddAuthentication("cookie")
+            builder.Services.AddAuthentication("cookie")
                 .AddCookie("cookie");
 
-            var builder = services.AddDynamicProviders(options =>
+            builder.Services.AddDynamicProviders(options =>
                 {
                     // Component setup
                     options.Licensee = "";
@@ -32,10 +30,18 @@ namespace Core
                 optionsAugmentor.Licensee = "DEMO";
                 optionsAugmentor.LicenseKey = "<your license key>";
             });*/
+            return builder.Build();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            // Configure the HTTP request pipeline.
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
 
             app.UseDeveloperExceptionPage();
@@ -46,7 +52,12 @@ namespace Core
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
+            // Map routes
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            return app;
         }
     }
 }
